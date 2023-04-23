@@ -23,6 +23,7 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- vim.keymap.set("n", "<leader>d", ":echo 'hello'<CR>", {noremap = true, silent=true, desc= "does something"}) -- for testing whichkey plugin
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)

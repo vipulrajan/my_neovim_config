@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" })
 	use({ "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" })
 	use({ "folke/which-key.nvim" })
-	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", commit="69a6ca7c41b023ebf9cad70778e227b3209b40c4"}) -- Magit type client
+	use({ "mg979/vim-visual-multi" }) --multi cursor plugin
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" })
@@ -76,9 +76,9 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" }) -- a bunch of snippets to use
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" }) -- enable LSP
-	use({ "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12" }) -- simple to use language server installer
-	use({ "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" })
+	use({ "neovim/nvim-lspconfig" }) -- enable LSP
+	use({ "williamboman/mason.nvim" }) -- simple to use language server installer
+	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" })
 
@@ -87,12 +87,18 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use({
-		"nvim-treesitter/nvim-treesitter",commit = "7ade4d2e774795f458207db115421f09e2a049d8"
+		"nvim-treesitter/nvim-treesitter",
+		commit = "7ade4d2e774795f458207db115421f09e2a049d8",
 	})
 
 	-- Git
+	use({
+		"TimUntersberger/neogit",
+		requires = "nvim-lua/plenary.nvim",
+		commit = "69a6ca7c41b023ebf9cad70778e227b3209b40c4",
+	}) -- Magit type client
 	use({ "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" })
-
+	use({ "tpope/vim-fugitive" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
